@@ -1,0 +1,8 @@
+{
+  "name": "directory-react-nodejs",
+  "description": "React Node.js sample app",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.10.6"
+  }
+}
