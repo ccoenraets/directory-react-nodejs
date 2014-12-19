@@ -56,7 +56,7 @@ Click the "Deploy to Heroku" button at the top of this page to deploy the applic
 
 1. Make sure you have an up-to-date version of Node.js installed on your system. If you don't have Node.js installed, you can install it from [here](http://nodejs.org/).
 
-1. Open a terminal window (Mac) or a command window (Windows), and install Cordova and Ionic:
+1. Open a terminal window (Mac) or a command window (Windows), and install Cordova:
 
   ```
   npm install -g cordova
@@ -77,12 +77,12 @@ Click the "Deploy to Heroku" button at the top of this page to deploy the applic
   or
 
   ```
-  sudo npm update -g cordova ionic
+  sudo npm update -g cordova
   ```
 
 ### Step 2: Create the application
 
-1. Using the Ionic CLI, create an application named **employee-directory**:
+1. Using the Cordova CLI, create an application named **employee-directory**:
 
   ```
   cordova create react-directory
@@ -92,10 +92,19 @@ Click the "Deploy to Heroku" button at the top of this page to deploy the applic
 
 1. Copy the ***www*** folder from this repository to the Cordova project's ***employee-directory*** folder
 
+1. Add cordova.js as the first script in index.html
+
+    ```
+    <script src="cordova.js"></script>
+    ```
+
+    > codova.js doesn't need to be in your www folder. It is automatically injected by the Cordova CLI during the build process
+
+
 1. Modify ***www/js/data-service.js*** and set the baseURL variable to the URL where your Node.js server is running. For example:
 
     ```
-    var baseURL = 'http://react-directory.herokuapp.com';
+    var baseURL = 'http://reactjs-directory.herokuapp.com';
     ```
 
 
@@ -115,7 +124,7 @@ using the steps below.
 1. Build the project:
 
     ```
-    ionic build ios
+    cordova build ios
     ```
 
 1. Open **react-directory.xcodeproj** in the **ract-directory/platforms/ios** folder
@@ -150,11 +159,11 @@ application using the steps below.
 1. To build and run the application on an Android device connected to your computer using a USB cable:
 
     ```
-    ionic run android
+    cordova run android
     ```
 
 1. To build and run the application in the Android emulator:
 
     ```
-    ionic emulate android
+    cordova emulate android
     ```
